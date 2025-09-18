@@ -47,7 +47,7 @@ int main() {
         printf("list_remove_at_index : FAILED\n");
   }
   
-
+  
   // printf("The list length is %d\n", list_length(mylist));
 
   // list_add_to_back(mylist, 39);
@@ -94,7 +94,12 @@ int main() {
   printf("Index of %d?: %d\n", 10, list_get_index_of(mylist, 10));
   printf("Index of %d?: %d\n", 90, list_get_index_of(mylist, 90));
   // printf("Index of %d?: %d\n", 81, list_get_index_of(mylist, 81));
-  
+  list_add_at_index(mylist, 10, 5);
+  list_print(mylist);
+  if(strcmp("90->70->60->50->10->40->20->10->NULL",listToString(mylist)) != 0)
+  {
+        printf("list_remove_at_index : FAILED\n");
+  }
   // list_free(mylist);
   // list_add_at_index(mylist, -1, -1);
   // list_print(mylist);
@@ -164,7 +169,20 @@ int main() {
   // list_print(mylist);
 
   // printf("Is %d in the list?: %d\n", 60, list_is_in(mylist, 60));
-  // list_add_to_back(mylist, 50);
+  list_add_to_back(mylist, 50);
+  list_print(mylist);
+  if(strcmp("90->70->60->50->10->40->20->10->50->NULL",listToString(mylist)) != 0)
+  {
+        printf("list_add_to_back : FAILED\n");
+  }
+  list_remove_from_front(mylist);
+  list_print(mylist);
+  if(strcmp("70->60->50->10->40->20->10->50->NULL",listToString(mylist)) != 0)
+  {
+        printf("list_remove_from_front : FAILED\n");
+  }
+  bool result = list_is_in(mylist,50);
+  printf("Returned value: %d\n", result);
   // list_add_to_back(mylist, 60);
   // list_add_to_back(mylist, 70);
   // list_add_to_back(mylist, 80);
@@ -181,7 +199,7 @@ int main() {
   // printf("Value at %d in the list?: %d\n", -4, list_get_elem_at(mylist, -4));
   // printf("Value at %d in the list?: %d\n", 10, list_get_elem_at(mylist, 10));
   // printf("Value at %d in the list?: %d\n", 6, list_get_elem_at(mylist, 6));
-  // printf("Value at %d in the list?: %d\n", 5, list_get_elem_at(mylist, 5));
+  printf("Value at %d in the list?: %d\n", 5, list_get_elem_at(mylist, 5));
   // printf("Value at %d in the list?: %d\n", 0, list_get_elem_at(mylist, 0));
   // list_free(mylist);
   // list_print(mylist);
@@ -209,5 +227,7 @@ int main() {
   // list_add_to_back(mylist, 40);
   // list_print(mylist);
   // printf("Index of %d?: %d\n", 40, list_get_index_of(mylist, 40));
+  list_free(mylist);
+  list_print(mylist);
   return 0;
 }
